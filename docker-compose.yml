@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./models:/app/models
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --token=''
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./models:/app/models
+    depends_on:
+      - jupyter
+    command: uv run python -m src.api
+
+volumes:
+  models_data:
