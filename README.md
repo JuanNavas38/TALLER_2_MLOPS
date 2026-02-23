@@ -73,3 +73,18 @@ uv sync
 uv run python -m src.train
 uv run python -m src.api
 ```
+
+
+## Evidencia de funcionamiento
+
+### Servicios Docker en ejecución
+<img width="921" height="189" alt="image" src="https://github.com/user-attachments/assets/ca03f6d6-aa21-4fe2-b0df-73a813c47efb" />
+### API FastAPI operativa
+<img width="921" height="512" alt="image" src="https://github.com/user-attachments/assets/b97f7fb1-44da-45c2-8590-198a89b21afa" />
+### Predicción exitosa
+<img width="1600" height="860" alt="image" src="https://github.com/user-attachments/assets/896c196d-729a-4baa-919e-94a14ece1f15" />
+### JupyterLab activo
+<img width="923" height="511" alt="image" src="https://github.com/user-attachments/assets/524d4a39-a811-4b19-8501-94337f7c0975" />
+
+
+
