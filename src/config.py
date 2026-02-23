@@ -3,6 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODELS_DIR = BASE_DIR / "models"
+DATA_PATH = BASE_DIR / "data" / "penguins.csv"
 
 API_HOST = "0.0.0.0"
 API_PORT = 8989
@@ -10,7 +11,7 @@ API_PORT = 8989
 FEATURE_COLUMNS = ["island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"]
 CATEGORICAL_COLUMNS = ["island", "sex"]
 TARGET_COLUMN = "species"
-DROP_COLUMNS = ["species", "year"]
+DROP_COLUMNS = ["species"]
 
 TEST_SIZE = 0.2
 RANDOM_STATE = 42

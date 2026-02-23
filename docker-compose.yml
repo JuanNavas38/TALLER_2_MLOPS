@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   jupyter:
     build:
@@ -11,9 +9,10 @@ services:
       - ./models:/app/models
       - ./notebooks:/app/notebooks
       - ./src:/app/src
+      - ./data:/app/data
     environment:
       - JUPYTER_ENABLE_LAB=yes
-    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --token=''
+    command: uv run jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''
 
   api:
     build:
@@ -23,6 +22,8 @@ services:
       - "8989:8989"
     volumes:
       - ./models:/app/models
+      - ./data:/app/data
+      - ./src:/app/src
     depends_on:
       - jupyter
     command: uv run python -m src.api
