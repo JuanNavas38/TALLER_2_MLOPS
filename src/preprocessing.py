@@ -3,17 +3,16 @@ from typing import Dict
 
 import joblib
 import pandas as pd
-from palmerpenguins import load_penguins
 from sklearn.preprocessing import LabelEncoder
 
-from src.config import CATEGORICAL_COLUMNS, MIN_SAMPLES_AFTER_CLEANING, MODELS_DIR
+from src.config import CATEGORICAL_COLUMNS, DATA_PATH, MIN_SAMPLES_AFTER_CLEANING, MODELS_DIR
 
 logger = logging.getLogger(__name__)
 
 
 def load_and_clean_data() -> pd.DataFrame:
-    logger.info("Cargando datos de Palmer Penguins...")
-    df = load_penguins()
+    logger.info("Cargando datos desde %s...", DATA_PATH)
+    df = pd.read_csv(DATA_PATH)
     original_shape = df.shape
     logger.info("Dimensiones originales: %s", original_shape)
 
